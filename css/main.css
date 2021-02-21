@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @font-face {
   font-family: "MontserratRegular";
   src: url(../fonts/Montserrat/Montserrat-Regular.ttf);
@@ -16,14 +17,20 @@
   font-style: normal;
   font-weight: normal;
 }
-.main-container {
+#root {
+  justify-content: center;
+  align-items: center;
+  display: flexs;
+  height: 100vh;
+}
+#root #main-container {
   position: relative;
   max-width: 1200px;
   margin: auto auto;
   width: 100%;
-  height: 100%;
-  min-height: 800px;
-  background-color: #f1f1f1;
+  height: auto;
+  min-height: 750px;
+  background-color: #91bcc4;
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
@@ -36,7 +43,8 @@
   -webkit-user-select: none;
   user-select: none;
 }
-.main-container .header {
+
+#header {
   position: static;
   top: 0;
   left: 0;
@@ -47,61 +55,92 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
+  -webkit-box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
 }
-.main-container .header .btn-toogle {
+#header .btn-toogle {
   position: relative;
   width: 40px;
   height: 40px;
-  background-color: #e7e7e7;
-  border: 2px solid #ffd04a;
+  background-color: #ffd04a;
+  border: 2px solid tomato;
+  color: #ffd04a;
   cursor: pointer;
   border-radius: 10px;
+  transform: rotate(0deg);
   -webkit-transition: -webkit-transform 0.8s ease-in-out;
-  transition: transform 0.8s ease-in-out;
+  transition: transform 0.5s;
+  background-image: url(../image/menu.png);
+  background-size: cover;
+  box-sizing: border-box;
 }
-.main-container .header .btn-toogle:hover {
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
+#header .btn-toogle:hover {
+  background-color: #ffd04a;
+  border: 2px solid #444141;
+  display: block;
 }
-.main-container .header .main-menu {
+#header .main-menu {
   position: absolute;
   top: 60px;
   left: 0px;
   margin: 0;
-  padding: 5px 10px 5px 10px;
+  padding-left: 0px;
+  padding-right: 2px;
   background-color: #e7e7e7c2;
   z-index: 100;
   cursor: pointer;
   font-weight: normal;
-}
-.main-container .header .main-menu:hover {
+  -webkit-transition: -webkit-transform 0.8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
+  font-size: 0.9rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  color: #3c3c3c;
   font-weight: bold;
 }
-.main-container .header .main-menu .menu-item {
+#header .main-menu .menu-item {
+  padding-left: 20px;
+  padding-right: 2px;
   cursor: pointer;
   font-weight: normal;
+  list-style-type: none;
 }
-.main-container .header .main-menu .menu-item:hover {
+#header .main-menu .menu-item:hover {
   font-weight: bold;
 }
-.main-container .header .main-menu .menu-item .sub-menu-item {
+#header .main-menu .menu-item .sub-menu-item {
   cursor: pointer;
   font-weight: normal;
+  transition: all 0.5s ease-in;
 }
-.main-container .header .main-menu .menu-item .sub-menu-item:hover {
+#header .main-menu .menu-item .sub-menu-item:hover {
   font-weight: bold;
 }
-.main-container .card-container {
+
+.hide::before {
+  content: "➕";
+  margin-right: 5px;
+  font-size: 0.7rem;
+}
+
+.show::before {
+  content: "➖";
+  margin-right: 5px;
+  font-size: 0.7rem;
+}
+
+#card-container {
   position: relative;
   display: flex;
   align-items: center;
   align-content: center;
   flex-wrap: wrap;
   margin: 20px auto;
-  width: 1100px;
+  width: 1020px;
   cursor: pointer;
 }
-.main-container .card-container .droppable {
+#card-container .droppable {
   position: relative;
   width: 200px;
   height: 200px;
@@ -110,26 +149,22 @@
   align-items: center;
   align-content: center;
 }
-.main-container .card-container .droppable .card {
+#card-container .droppable .card {
   height: 200px;
   padding: 5px;
   width: 200px;
   display: flex;
-  background-color: #bbbbbb;
+  background-color: #ffffff;
   border-radius: 4px;
   flex-direction: column;
   box-sizing: border-box;
   z-index: 5;
 }
-.main-container .card-container .droppable .card:hover {
-  -webkit-box-shadow: 0px 0px 26px -5px #eec113;
-  -moz-box-shadow: 0px 0px 26px -5px #eec113;
-  box-shadow: 0px 0px 26px -5px #eec113;
+#card-container .droppable .card:hover {
+  border: 2px solid #ffd04a;
+  padding: 3px;
 }
-.main-container .card-container .droppable .hiddenCard {
-  display: none;
-}
-.main-container .card-container .droppable .hiddenCard .title {
+#card-container .droppable .card .title {
   position: relative;
   width: 100%;
   display: flex;
@@ -137,12 +172,14 @@
   font-family: "MontserratMedium";
   font-weight: normal;
   color: #3c3c3c;
-  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
   height: 30px;
   margin: 0;
-  cursor: pointer;
+  cursor: text;
+  text-indent: 5px;
 }
-.main-container .card-container .droppable .hiddenCard .description {
+#card-container .droppable .card .description {
   position: relative;
   width: 100%;
   height: 100%;
@@ -151,18 +188,19 @@
   font-family: "MontserratMedium";
   font-weight: normal;
   color: #666464;
-  border: 1px solid #e7e7e7;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
   margin-top: 5px;
   margin-bottom: 0px;
+  text-indent: 5px;
 }
-.main-container .card-container .droppable .hiddenCard .card-footer {
+#card-container .droppable .card .card-footer {
   width: 100%;
   display: flex;
   flex-direction: row;
   margin-top: 10px;
-  border: 1px solid black;
 }
-.main-container .card-container .droppable .hiddenCard .card-footer .price {
+#card-container .droppable .card .card-footer .price {
   width: 80px;
   height: 30px;
   position: relative;
@@ -175,7 +213,7 @@
   flex-grow: 1;
   align-items: center;
 }
-.main-container .card-container .droppable .hiddenCard .card-footer .btn-buy {
+#card-container .droppable .card .card-footer .btn-buy {
   width: 80px;
   height: 30px;
   position: relative;
@@ -192,19 +230,23 @@
   align-items: center;
   justify-content: center;
 }
-.main-container .card-container .droppable .hiddenCard .card-footer .btn-buy:hover {
-  background-color: #f1c30e;
+#card-container .droppable .card .card-footer .btn-buy:hover {
+  background-color: #f39b13;
 }
-.main-container .card-container .droppable .taken {
-  border: 5px solid #f84f00;
-}
-.main-container .card-container .droppable .ghostly {
+#card-container .droppable .hiddenCard {
   display: none;
 }
-.main-container .card-container .hovered {
+#card-container .droppable .taken {
+  border: 5px solid #0074f8;
+}
+#card-container .droppable .ghostly {
+  display: none;
+}
+#card-container .hovered {
   background-color: #f1c30e;
 }
-.main-container .modal-form-container {
+
+#modal-form-container {
   z-index: 30;
   position: absolute;
   top: 0;
@@ -215,32 +257,32 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  border: 1px solid red;
   display: none;
 }
-.main-container .modal-form-container .modal-form {
+#modal-form-container .modal-form {
   position: relative;
   width: 300px;
-  min-width: min-content;
   height: 100%;
   max-height: 150px;
   background-color: #f5f5f5;
   border: 2px solid white;
   border-radius: 4px;
-  box-sizing: border-box;
   padding: 10px;
+  margin: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
 }
-.main-container .modal-form-container .modal-form .btn-close {
+#modal-form-container .modal-form .btn-close {
   position: absolute;
-  right: 5px;
-  top: 5px;
-  background-color: #64bff8;
+  right: 10px;
+  top: 0px;
+  background-color: #f1c30e;
   color: #000;
-  border-radius: 50%;
-  width: 20px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 30px;
   height: 20px;
   font-size: 1.3rem;
   font-family: "LongCang";
@@ -249,58 +291,78 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  border: 2px solid #f1c30e;
+  text-decoration: none;
 }
-.main-container .modal-form-container .modal-form .btn-close:hover {
+#modal-form-container .modal-form .btn-close:hover {
   background: #b42222;
   color: #ffffff;
+  border-color: #b42222;
 }
-.main-container .modal-form-container .modal-form #form .input-change {
+#modal-form-container .modal-form .btn-close::before {
+  content: "✖";
+}
+#modal-form-container .modal-form #form {
+  max-width: 300px;
+  width: 100%;
+}
+#modal-form-container .modal-form #form .input-change {
   position: relative;
   width: 100%;
-  min-width: 300px;
-  height: 60px;
+  height: 40px;
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  border-top-right-radius: 0px;
-  border-bottom-right-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
   display: flex;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-family: "MontserratMedium";
   font-weight: normal;
   padding: 0;
   box-sizing: border-box;
   text-indent: 5px;
+  border: 1px solid;
+  text-decoration: none;
 }
-.main-container .modal-form-container .modal-form #form .btn-submit {
-  background-color: #41a451;
-  position: relative;
-  height: 60px;
-  margin: 0;
-  margin-top: 5px;
+#modal-form-container .modal-form #form .btn-container {
   width: 100%;
   display: flex;
-  font-size: 1.2rem;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: space-around;
+}
+#modal-form-container .modal-form #form .btn-container .btn-submit {
+  background-color: #41a451 !important;
+  position: relative;
+  height: 40px;
+  margin: 0;
+  width: 100%;
+  display: block;
+  font-size: 1.1rem;
   font-family: "MontserratMedium";
   font-weight: normal;
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  border-top-left-radius: 0px;
-  border-bottom-left-radius: 0px;
-  border-top-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  flex-grow: 1;
+  border: none;
+  text-decoration: none;
 }
-.main-container .modal-form-container .modal-form #form .btn-submit:hover {
-  background-color: #64c775;
+#modal-form-container .modal-form #form .btn-container .btn-submit:hover {
+  background-color: #8ec998;
+  color: #ffffff;
 }
-.main-container .modal-form-container .modal-form #form .btn-reset {
+#modal-form-container .modal-form #form .btn-container .btn-reset {
   position: relative;
-  height: 60px;
+  height: 40px;
   margin: 0;
-  margin-top: 5px;
   width: 100%;
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: "MontserratMedium";
   font-weight: normal;
   align-items: center;
@@ -311,9 +373,184 @@
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   background-color: #b42222;
+  flex-grow: 1;
+  border: none;
 }
-.main-container .modal-form-container .modal-form #form .btn-reset:hover {
+#modal-form-container .modal-form #form .btn-container .btn-reset:hover {
   background-color: #b43c3c;
+  color: #ffffff;
+}
+
+#back {
+  position: fixed;
+  bottom: -40px;
+  right: 20px;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 30px;
+  background: #f1c30e;
+  color: #444141;
+  cursor: pointer;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #444141;
+  padding: 0;
+  box-sizing: border-box;
+  transition: 0.5s;
+  padding-top: 2px;
+}
+#back:hover {
+  background: #444141;
+  color: #f1c30e;
+  border-color: #f1c30e;
+}
+#back::before {
+  content: "▲";
+  font-size: 1.3rem;
+}
+
+@media screen and (max-width: 1200px) {
+  #main-container {
+    width: 950px;
+  }
+
+  #card-container {
+    width: 816px;
+  }
+}
+@media screen and (max-width: 980px) {
+  #main-container {
+    width: 750px;
+  }
+
+  #card-container {
+    width: 612px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #main-container {
+    max-width: 767px;
+    width: 100%;
+  }
+
+  #card-container {
+    max-width: 552px;
+  }
+  #card-container .droppable {
+    width: 100%;
+    height: 180px;
+    max-width: 180px;
+  }
+  #card-container .droppable .card {
+    width: 100%;
+    height: 180px;
+    max-width: 180px;
+  }
+  #card-container .droppable .card .title {
+    font-size: 1.4rem;
+  }
+  #card-container .droppable .card .description {
+    font-size: 1.1rem;
+  }
+  #card-container .droppable .card .card-footer .price {
+    font-size: 1.1rem;
+  }
+  #card-container .droppable .card .card-footer .btn-buy {
+    font-size: 1.1rem;
+  }
+}
+@media screen and (max-width: 580px) {
+  #header {
+    height: 50px;
+  }
+  #header .btn-toogle {
+    width: 35px;
+    height: 35px;
+  }
+  #header .main-menu {
+    top: 50px;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+
+  #card-container {
+    max-width: 368px;
+  }
+
+  #modal-form-container {
+    align-items: flex-start;
+    padding-top: 250px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #card-container {
+    width: 304px;
+  }
+  #card-container .droppable {
+    max-width: 148px;
+    height: 148px;
+  }
+  #card-container .droppable .card {
+    max-width: 148px;
+    height: 148px;
+  }
+  #card-container .droppable .card .title {
+    height: 20px;
+    font-size: 1.1rem;
+  }
+  #card-container .droppable .card .description {
+    font-size: 0.9rem;
+  }
+  #card-container .droppable .card .card-footer .price {
+    font-size: 0.9rem;
+    height: 25px;
+  }
+  #card-container .droppable .card .card-footer .btn-buy {
+    font-size: 0.9rem;
+    height: 25px;
+  }
+
+  #modal-form-container .modal-form {
+    max-width: 300px;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px) {
+  #header {
+    height: 45px;
+  }
+  #header .btn-toogle {
+    width: 30px;
+    height: 30px;
+  }
+  #header .main-menu {
+    top: 45px;
+  }
+
+  #card-container {
+    width: 152px;
+  }
+
+  #modal-form-container {
+    padding-top: 150px;
+  }
+  #modal-form-container .modal-form {
+    max-height: 120px;
+  }
+  #modal-form-container .modal-form #form .input-change {
+    height: 35px;
+  }
+  #modal-form-container .modal-form #form .btn-container {
+    margin-top: 10px;
+  }
+  #modal-form-container .modal-form #form .btn-container .btn-submit,
+#modal-form-container .modal-form #form .btn-container .btn-reset {
+    height: 35px;
+    font-size: 1rem;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

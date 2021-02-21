@@ -4,37 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/normalize.css" type="text/css" />
     <link rel="stylesheet" href="css/main.css" type="text/css">
     <title>Techno Element TZ</title>
 </head>
 
 <body>
     <div id='root'>
-        <div class='main-container'>
+        <div id='main-container'>
             <!--HEADER-->
-            <div class='header'>
+            <div id='header'>
                 <div class='btn-toogle'></div>
-                <div class='main-menu'>Catalog</div>
+                <div class='main-menu'></div>
             </div>
             <!--CARD CONTAINER-->
-            <div class='card-container'>
+            <div id='card-container'>
             </div>
             <!--MODAL FORM -->
-            <div class='modal-form-container'>
+            <div id='modal-form-container'>
                 <div class='modal-form'>
-                    <button class='btn-close'>X</button>
+                    <button class='btn-close'></button>
                     <form id='form'>
-                        <input name='inputChange' className='input-change' type="text" placeholder="Enter the title of the card..." onBlur="this.value" />
-                        <button className='btn-submit' type="submit">Apply</button>
-                        <button type='reset' className='btn-reset'>Clear</button>
+                        <input maxlength="15" name='inputChange' class='input-change' type="text" placeholder="Enter the title of the card..." onBlur="this.value" />
+                        <div class='btn-container'>
+                            <button class='btn-submit' type="submit" value="">Apply</и>
+                            <button type='reset' class='btn-reset'>Clear</button>
+                        </div>
                     </form>
                 </div>
             </div>
-
-
-
-            </form>
+            <!--BACK-->
+            <div id="back"></div>
         </div>
         <script src="script/main.js" type="module"></script>
 </body>

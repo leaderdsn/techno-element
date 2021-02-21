@@ -84,46 +84,174 @@ export const cardDB = [{
     },
 ]
 
-// export const menu = {
-//     label: 'Beverages',
-//     label: 'Beverages2',
-//     children: [
-//         { label: 'Water' },
-//         { label: 'Coffee' },
-//         {
-//             label: 'Tea',
-//             children: [
-//                 { label: 'Black Tea' },
-//                 { label: 'White Tea' },
-//                 {
-//                     label: 'Green Tea',
-//                     children: [
-//                         { label: 'Sencha' },
-//                         { label: 'Gyokuro' },
-//                         { label: 'Matcha' },
-//                         { label: 'Pi Lo Chun' }
-//                     ]
-//                 }
-//             ]
-//         }
-//     ],
-// };
-
-export const menu = [ //Массив с данными
-    { "name": "item 1" },
-    { "name": "item 2" },
-    {
-        "name": "item 3",
-        "children": [{
-                "name": "sub item 1",
-                "children": [{
-                    "name": "sub sub item 1",
-                }]
-            },
-            { "name": "sub item 2" },
-            { "name": "sub item 3" },
-            { "name": "sub item 4" }
+export const menu = [{
+        'label': 'Construction tools1',
+        'children': [
+            { 'label': '100mm' },
+            { 'label': '115mm' },
         ]
     },
-    { "name": "item 4" }
+    { 'label': 'Construction tools2' },
+    {
+        'label': 'Construction tools3',
+        'children': [{
+                'label': 'Bulgarians',
+                'children': [{
+                        'label': 'AEG',
+                        'children': [
+                            { 'label': '100mm' },
+                            { 'label': '115mm' },
+                            { 'label': '125mm' },
+                            { 'label': '150mm' },
+                            { 'label': '180mm' },
+                            { 'label': '230mm' },
+                            { 'label': '300mm' },
+                        ]
+                    },
+                    {
+                        'label': 'DEWALT',
+                        'children': [
+                            { 'label': '100mm' },
+                            { 'label': '115mm' },
+                            { 'label': '125mm' },
+                            { 'label': '150mm' },
+                            { 'label': '180mm' },
+                            { 'label': '230mm' },
+                            { 'label': '300mm' },
+                        ]
+                    },
+                    {
+                        'label': 'BOSCH',
+                        'children': [
+                            { 'label': '100mm' },
+                            { 'label': '115mm' },
+                            { 'label': '125mm' },
+                            { 'label': '150mm' },
+                            { 'label': '180mm' },
+                            { 'label': '230mm' },
+                            { 'label': '300mm' },
+                        ]
+                    },
+                    {
+                        'label': 'Makita',
+                        'children': [
+                            { 'label': '100mm' },
+                            { 'label': '115mm' },
+                            { 'label': '125mm' },
+                            { 'label': '150mm' },
+                            { 'label': '180mm' },
+                            { 'label': '230mm' },
+                            { 'label': '300mm' },
+                        ]
+                    },
+                    {
+                        'label': 'Sturm',
+                        'children': [
+                            { 'label': '100mm' },
+                            { 'label': '115mm' },
+                            { 'label': '125mm' },
+                            { 'label': '150mm' },
+                            { 'label': '180mm' },
+                            { 'label': '230mm' },
+                            { 'label': '300mm' },
+                        ]
+                    },
+                ]
+            },
+            {
+                'label': 'Impact wrenches',
+                'children': [{
+                        'label': 'AEG',
+                        'children': [
+                            { 'label': 'Pulse' },
+                            { 'label': 'Shock' },
+                            { 'label': 'Electric' },
+
+                        ]
+                    },
+                    {
+                        'label': 'Reoby',
+                        'children': [
+                            { 'label': 'Pulse' },
+                            { 'label': 'Shock' },
+                            { 'label': 'Electric' },
+
+                        ]
+                    },
+                    {
+                        'label': 'Patriot',
+                        'children': [
+                            { 'label': 'Pulse' },
+                            { 'label': 'Shock' },
+                            { 'label': 'Electric' },
+                        ]
+                    },
+                    {
+                        'label': 'Makita',
+                        'children': [
+                            { 'label': 'Pulse' },
+                            { 'label': 'Shock' },
+                            { 'label': 'Electric' },
+
+                        ]
+                    },
+                    {
+                        'label': 'REDVERG',
+                        'children': [
+                            { 'label': 'Pulse' },
+                            { 'label': 'Shock' },
+                            { 'label': 'Electric' },
+                        ]
+                    },
+                ]
+            },
+            {
+                'label': 'Drills',
+                'children': [{
+                        'label': 'Сordless drills screwdrivers',
+                        'children': [
+                            { 'label': 'brush' },
+                            { 'label': 'brushless' },
+                            {
+                                'label': 'On wood',
+                                'children': [{
+                                    'label': 'Voltage',
+                                    'children': [{
+                                            'label': '12V',
+                                            'children': [{
+                                                    'label': 'With li-ion battery',
+                                                    'children': [
+                                                        { 'label': 'Pulse' },
+                                                        { 'label': 'Shock' },
+                                                        { 'label': 'Electric' },
+
+                                                    ]
+                                                },
+                                                {
+                                                    'label': 'Without li-ion battery',
+                                                    'children': [
+                                                        { 'label': 'Pulse' },
+                                                        { 'label': 'AEG' },
+                                                        { 'label': 'Electric' },
+
+                                                    ]
+                                                },
+                                            ]
+                                        },
+                                        { 'label': '18V' },
+                                        { 'label': '36V' },
+
+                                    ]
+                                }, ]
+                            },
+                        ]
+                    },
+                    { 'label': 'Shockless' },
+                    { 'label': 'Drill mixers' },
+                    { 'label': 'Percussion' },
+                    { 'label': 'Corner' },
+                ]
+            },
+        ]
+    },
 ];
