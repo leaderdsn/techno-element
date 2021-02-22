@@ -1,0 +1,124 @@
+#modal-form-container
+    z-index: 30
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-color: #080808b4
+    align-items: center
+    justify-content: center
+    flex-wrap: wrap
+    display: none
+    .modal-form
+        position: relative
+        width: 300px
+        // min-width: min-content
+        height: 100%
+        max-height: 150px
+        background-color: #f5f5f5
+        border: 2px solid white
+        border-radius: 4px 
+        // box-sizing: border-box  
+        padding: 10px
+        margin: 10px
+        display: flex
+        align-items: center
+        justify-content: center
+        border: none
+        .btn-close
+            position: absolute
+            right: 10px
+            top: 0px
+            background-color: #f1c30e
+            color: #000
+            border-bottom-left-radius: 4px
+            border-bottom-right-radius: 4px
+            width: 30px
+            height: 20px
+            font-size: 1.3rem
+            font-family: "LongCang"
+            font-weight: normal
+            display: flex
+            align-items: center
+            justify-content: center
+            cursor: pointer
+            border: 2px solid #f1c30e
+            text-decoration: none
+            &:hover
+                background: #b42222
+                color: #ffffff
+                border-color: #b42222
+            &::before
+                content: '\2716'
+        #form
+            max-width: 300px
+            width: 100%
+            .input-change
+                position: relative
+                width: 100%
+                height: 40px
+                border-top-left-radius: 4px
+                border-bottom-left-radius: 4px
+                border-top-right-radius: 4px
+                border-bottom-right-radius: 4px
+                display: flex
+                font-size: 0.9rem
+                font-family: "MontserratMedium"
+                font-weight: normal
+                padding: 0
+                box-sizing: border-box
+                text-indent: 5px
+                border: 1px solid
+                text-decoration: none
+            .btn-container
+                width: 100%
+                display: flex
+                flex-direction: row
+                margin-top: 30px
+                justify-content: space-around
+                .btn-submit
+                    background-color: #41a451 !important
+                    position: relative
+                    height: 40px
+                    margin: 0 
+                    width: 100%
+                    display: block
+                    font-size: 1.1rem
+                    font-family: "MontserratMedium"
+                    font-weight: normal
+                    align-items: center
+                    justify-content: center
+                    box-sizing: border-box
+                    border-top-left-radius: 4px
+                    border-bottom-left-radius: 4px
+                    border-top-right-radius: 0px
+                    border-bottom-right-radius: 0px
+                    flex-grow: 1
+                    border: none
+                    text-decoration: none
+                    &:hover
+                        background-color:  #8ec998
+                        color: #ffffff
+                .btn-reset
+                    position: relative
+                    height: 40px
+                    margin: 0
+                    width: 100%
+                    display: flex
+                    font-size: 1.1rem
+                    font-family: "MontserratMedium"
+                    font-weight: normal
+                    align-items: center
+                    justify-content: center
+                    box-sizing: border-box
+                    border-top-left-radius: 0px
+                    border-bottom-left-radius: 0px
+                    border-top-right-radius: 4px
+                    border-bottom-right-radius: 4px
+                    background-color: #b42222
+                    flex-grow: 1
+                    border: none
+                    &:hover
+                        background-color:#b43c3c
+                        color: #ffffff
