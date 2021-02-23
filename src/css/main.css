@@ -19,7 +19,7 @@
 #root {
   justify-content: center;
   align-items: center;
-  display: flexs;
+  display: flex;
   height: 100vh; }
   #root #main-container {
     position: relative;
@@ -37,7 +37,6 @@
     padding: 0px;
     -ms-user-select: none;
     -moz-user-select: none;
-    -khtml-user-select: none;
     -webkit-user-select: none;
     user-select: none; }
 
@@ -65,11 +64,11 @@
     cursor: pointer;
     border-radius: 10px;
     transform: rotate(0deg);
-    -webkit-transition: -webkit-transform .8s ease-in-out;
     transition: transform 0.5s;
     background-image: url(../image/menu.png);
     background-size: cover;
-    box-sizing: border-box; }
+    box-sizing: border-box;
+    -webkit-transition: -webkit-transform .8s ease-in-out; }
     #header .btn-toogle:hover {
       background-color: #ffd04a;
       border: 2px solid #444141;
@@ -79,19 +78,21 @@
     top: 60px;
     left: 0px;
     margin: 0;
+    overflow: scroll;
+    height: calc(100% - 60px);
     padding-left: 0px;
     padding-right: 2px;
     background-color: #e7e7e7c2;
     z-index: 100;
     cursor: pointer;
     font-weight: normal;
-    -webkit-transition: -webkit-transform .8s ease-in-out;
-    transition: transform .8s ease-in-out;
     font-size: 0.9rem;
     font-family: "MontserratMedium";
     font-weight: normal;
     color: #3c3c3c;
-    font-weight: bold; }
+    font-weight: bold;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out; }
     #header .main-menu .menu-item {
       padding-left: 20px;
       padding-right: 2px;
@@ -106,16 +107,12 @@
         transition: all 0.5s ease-in; }
         #header .main-menu .menu-item .sub-menu-item:hover {
           font-weight: bold; }
-
-.hide::before {
-  content: '\2795';
-  margin-right: 5px;
-  font-size: 0.7rem; }
-
-.show::before {
-  content: '\2796';
-  margin-right: 5px;
-  font-size: 0.7rem; }
+        #header .main-menu .menu-item .sub-menu-item::before {
+          content: '\2796';
+          margin-right: 5px;
+          font-size: 0.7re; }
+      #header .main-menu .menu-item .collapsed::before {
+        content: '\2795'; }
 
 #card-container {
   position: relative;
@@ -342,7 +339,7 @@
             background-color: #b43c3c;
             color: #ffffff; }
 
-#back {
+.btn-back-to-top {
   position: fixed;
   bottom: -40px;
   right: 20px;
@@ -358,15 +355,14 @@
   align-items: center;
   justify-content: center;
   border: 2px solid #444141;
-  padding: 0;
+  padding: 2px 0 0 0;
   box-sizing: border-box;
-  transition: 0.5s;
-  padding-top: 2px; }
-  #back:hover {
+  transition: 0.5s; }
+  .btn-back-to-top:hover {
     background: #444141;
     color: #f1c30e;
     border-color: #f1c30e; }
-  #back::before {
+  .btn-back-to-top::before {
     content: '\25B2';
     font-size: 1.3rem; }
 

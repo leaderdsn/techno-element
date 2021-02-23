@@ -22,11 +22,11 @@
         cursor: pointer
         border-radius: 10px
         transform: rotate(0deg)
-        -webkit-transition: -webkit-transform .8s ease-in-out
         transition: transform 0.5s
         background-image: url(../image/menu.png)
         background-size: cover
         box-sizing: border-box
+        -webkit-transition: -webkit-transform .8s ease-in-out
         &:hover
             background-color: #ffd04a
             border: 2px solid #444141
@@ -36,19 +36,21 @@
         top: 60px
         left: 0px
         margin: 0
+        overflow: scroll
+        height: calc(100% - 60px)
         padding-left: 0px
         padding-right: 2px
         background-color: #e7e7e7c2
         z-index: 100
         cursor: pointer
         font-weight: normal
-        -webkit-transition: -webkit-transform .8s ease-in-out
-        transition: transform .8s ease-in-out
         font-size: 0.9rem
         font-family: "MontserratMedium"
         font-weight: normal
         color: #3c3c3c
         font-weight: bold
+        -webkit-transition: -webkit-transform .8s ease-in-out
+        transition: transform .8s ease-in-out
         .menu-item
             padding-left: 20px
             padding-right: 2px
@@ -62,17 +64,23 @@
                 cursor: pointer
                 font-weight: normal
                 transition: all 0.5s ease-in
-                //display: none
                 &:hover
                     font-weight: bold
+                &::before
+                    content: '\2796'
+                    margin-right: 5px
+                    font-size: 0.7re
+            .collapsed::before
+                    content: '\2795'
 
-.hide::before
-    content: '\2795'
-    margin-right: 5px
-    font-size: 0.7rem
+//TODO: удалить 
+// .hide::before
+//     content: '\2795'
+//     margin-right: 5px
+//     font-size: 0.7rem
     
-.show::before
-    content: '\2796'
-    margin-right: 5px
-    font-size: 0.7rem
+// .show::before
+//     content: '\2796'
+//     margin-right: 5px
+//     font-size: 0.7rem
     

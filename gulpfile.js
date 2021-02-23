@@ -29,19 +29,16 @@ const sourcemaps = require('gulp-sourcemaps');
 const cssnano = require('gulp-cssnano');
 const changed = require('gulp-changed');
 const browsersync = require('browser-sync').create();
-const imagemin = require('gulp-imagemin');
+const babel = require('gulp-babel');
 const clean = require('gulp-clean');
-const fileinclude = require('gulp-file-include');
-const ttf2woff = require('gulp-ttf2woff');
-const ttf2woff2 = require('gulp-ttf2woff2');
-const fs = require('fs');
 
+/** FONTS */
 function fonts() {
     src('./src/fonts/**/*.ttf')
         .pipe(dest('./build/fonts/'));
     return src('./src/fonts/**/*.ttf')
         .pipe(dest('./build/fonts/'))
-}
+};
 
 /** SASS */
 function sass() {
@@ -51,7 +48,7 @@ function sass() {
         .pipe(gulpsass().on('error', gulpsass.logError))
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./src/css/'));
-}
+};
 
 /** CSS */
 function css() {
@@ -61,29 +58,20 @@ function css() {
         .pipe(cssnano())
         .pipe(dest('./build/css/'))
         .pipe(browsersync.stream())
-
-}
+};
 
 /** HTML */
 function html() {
     return src('./src/*.html')
         .pipe(dest('./build/'))
         .pipe(browsersync.stream());
-}
+};
 
 /** IMAGES */
 function img() {
     return src('./src/images/*')
-        .pipe(imagemin())
         .pipe(dest('./build/images'))
-}
-
-// function fontsStyle(params) {
-
-// }
-// function cb(params) {
-
-// }
+};
 
 /** WATCH FILES */
 function watchFiles() {
@@ -98,7 +86,9 @@ function watchFiles() {
 /** JS */
 function js() {
     return src('./src/js/*.js')
-        .pipe(fileinclude())
+        .pipe(sourcemaps.init())
+        .pipe(babel({ presets: ['@babel/preset-env'] }))
+        .pipe(sourcemaps.write('./'))
         .pipe(dest('./build/js'))
         .pipe(browsersync.stream());
 
