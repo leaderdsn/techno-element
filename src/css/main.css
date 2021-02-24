@@ -265,6 +265,9 @@
   flex-wrap: wrap;
   display: none; }
 
+.show-modal {
+  display: flex; }
+
 .modal-form {
   position: relative;
   width: 300px;

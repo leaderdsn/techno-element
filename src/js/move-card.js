@@ -1,5 +1,5 @@
 /** Moving the product card */
-function listenDragCard() {
+export function listenDragCard() {
     let droppables = document.querySelectorAll('.droppable');
     let cards = document.querySelectorAll('.card');
     let selectedCard = null;

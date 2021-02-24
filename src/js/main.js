@@ -1,3 +1,7 @@
+import { createCard } from "./cards.js";
+import { CARDS_DATA, MENU_DATA } from "./common.js";
+import { listenDragCard } from "./move-card.js";
+
 (function() {
 
     const mainMenu = document.querySelector('.js-main-menu');

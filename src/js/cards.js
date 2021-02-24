@@ -4,7 +4,7 @@ let cardData = {
     value: null
 }
 
-const createCard = (card) => {
+export const createCard = (card) => {
     const cardContainerElem = document.querySelector('.js-card-container');
 
     // container for cards
@@ -73,9 +73,7 @@ const listenFormCardSubmit = (elem) => {
                 console.log(res)
                 editingCardEl = cardData;
                 elem.innerText = e.target.inputForm.value
-                console.log(editingCardEl)
                 form.reset();
-
             })
             .catch((err) => {
                 // staging
@@ -103,13 +101,13 @@ function showModalForm(e, elem) {
     const inputForm = document.querySelector('.js-input-form')
     inputForm.value = e.target.innerText;
     listenFormCardSubmit(elem)
-    modalFormContainer.style.display = 'flex'; //TODO: заменить на класс
+    modalFormContainer.classList.add('show-modal')
 };
 
 function closeModalForm() {
     const modalFormContainer = document.querySelector('.js-modal-form-container');
     const btnClose = document.querySelector('.js-btn-close');
     btnClose.onclick = () => {
-        modalFormContainer.style.display = 'none';
+        modalFormContainer.classList.remove('show-modal')
     };
 };

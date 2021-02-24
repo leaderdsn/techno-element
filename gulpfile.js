@@ -72,13 +72,11 @@ function watchFiles() {
 /** JS */
 function js() {
     return src('./src/js/**/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(babel({
-            presets: ['@babel/preset-env']
-        }))
-        .pipe(commonjs())
-        .pipe(concat("main.js"))
-        .pipe(sourcemaps.write('./'))
+        // .pipe(babel({
+        //     presets: ['@babel/preset-env']
+        // }))
+        // .pipe(commonjs())
+        // .pipe(concat("main.js")))
         .pipe(dest('./build/js'))
         .pipe(browsersync.stream());
 
