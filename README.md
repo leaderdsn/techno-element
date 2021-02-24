@@ -5,8 +5,9 @@
 
 1.  ## Install Deps
 
+
 bash
-    # using npm
+# using npm
     npm i
 
 2.  ## Start developing
@@ -14,7 +15,7 @@ bash
     Start your site.
 
 bash
-    # using npm
+# using npm
     npm start
 
  
@@ -25,5 +26,5 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
     Once you're finished, you can make production build of your app using:
 
 bash
-    # using npm
+# using npm
     npx gulp
