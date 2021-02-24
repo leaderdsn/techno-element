@@ -9,13 +9,12 @@ const {
 /** LOAD PLUGINS */
 const gulpsass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const cssnano = require('gulp-cssnano');
-const changed = require('gulp-changed');
 const browsersync = require('browser-sync').create();
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
 const concat = require("gulp-concat");
 const commonjs = require("gulp-commonjs");
+const autoprefixer = require('gulp-autoprefixer');
 
 /** FONTS */
 function fonts() {
@@ -30,17 +29,11 @@ function sass() {
     const source = './src/sass/**/*.sass'
     return src(source)
         .pipe(sourcemaps.init())
-        .pipe(gulpsass().on('error', gulpsass.logError))
+        .pipe(gulpsass({
+            includePaths: require("node-normalize-scss").includePaths
+        }).on('error', gulpsass.logError))
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write('./'))
-        .pipe(dest('./src/css/'));
-};
-
-/** CSS */
-function css() {
-    const source = './src/css/*.css';
-    return src(source)
-        .pipe(changed(source))
-        .pipe(cssnano())
         .pipe(dest('./build/css/'))
         .pipe(browsersync.stream())
 };
@@ -63,10 +56,8 @@ function watchFiles() {
     watch('./src/*.html', html);
     watch('./src/images/*', img);
     watch('./src/sass/**/*.sass', sass);
-    watch('./src/css/*.css', css);
     watch('./src/fonts/**/*.ttf', fonts);
     watch('./src/js/*.js', js);
-    // watch(['src/**', 'test/**'], js);
 }
 
 /** JS */
@@ -100,4 +91,4 @@ function clear() {
 }
 
 exports.watch = parallel(watchFiles, browserSync);
-exports.default = series(clear, parallel(html, img, sass, css, fonts, js));
+exports.default = series(clear, parallel(html, img, sass, fonts, js));
