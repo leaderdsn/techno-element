@@ -1,6 +1,7 @@
 import { createCard } from "./cards.js";
 import { CARDS_DATA, MENU_DATA } from "./common.js";
 import { listenDragCard } from "./move-card.js";
+import { togglerChange } from "./toggle.js";
 
 (function() {
 
@@ -83,23 +84,8 @@ import { listenDragCard } from "./move-card.js";
     }
 
     /** TOGGLE */
-
     function listenMenuToggleBtn() {
         const btnToggle = document.querySelector('.js-btn-toggle');
         btnToggle.onclick = () => togglerChange(btnToggle);
-    }
-
-    let isHiddenMainMenu = mainMenu.style.display !== 'block'
-
-    function togglerChange(btnToggle) {
-        if (isHiddenMainMenu) {
-            mainMenu.classList.add('show-menu')
-            btnToggle.classList.add('show')
-            isHiddenMainMenu = false;
-        } else {
-            mainMenu.classList.remove('show-menu')
-            btnToggle.classList.remove('show')
-            isHiddenMainMenu = true;
-        }
     }
 }())
