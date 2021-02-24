@@ -1,5 +1,4 @@
 .modal-form-container
-    z-index: 30
     position: absolute
     top: 0
     left: 0
@@ -10,5 +9,6 @@
     justify-content: center
     flex-wrap: wrap
     display: none
-.show-modal
-    display: flex
+    z-index: 30
+    &.show-modal
+        display: flex
