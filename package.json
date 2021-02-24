@@ -23,6 +23,7 @@
         "@babel/preset-env": "^7.13.5",
         "browser-sync": "^2.26.14",
         "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^7.0.1",
         "gulp-babel": "^8.0.0",
         "gulp-changed": "^4.0.2",
         "gulp-clean": "^0.4.0",
@@ -33,6 +34,7 @@
         "gulp-sass": "^4.1.0",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-util": "^3.0.8",
-        "gulp-watch": "^5.0.1"
+        "gulp-watch": "^5.0.1",
+        "node-normalize-scss": "^8.1.2"
     }
 }
