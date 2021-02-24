@@ -427,33 +427,33 @@
     width: 100%; }
   .card-container {
     max-width: 552px; }
-    .card-container .droppable {
-      width: 100%;
-      height: 180px;
-      max-width: 180px; }
-      .card-container .droppable .card {
-        width: 100%;
-        height: 180px;
-        max-width: 180px; }
-        .card-container .droppable .card .title {
-          font-size: 1.4rem; }
-        .card-container .droppable .card .description {
-          font-size: 1.1rem; }
-        .card-container .droppable .card .card-footer .price {
-          font-size: 1.1rem; }
-        .card-container .droppable .card .card-footer .btn-buy {
-          font-size: 1.1rem; } }
+  .droppable {
+    width: 100%;
+    height: 180px;
+    max-width: 180px; }
+  .card {
+    width: 100%;
+    height: 180px;
+    max-width: 180px; }
+  .title {
+    font-size: 1.4rem; }
+  .description {
+    font-size: 1.1rem; }
+  .price {
+    font-size: 1.1rem; }
+  .btn-buy {
+    font-size: 1.1rem; } }
 
 @media screen and (max-width: 580px) {
   .header {
     height: 50px; }
-    .header .btn-toogle {
-      width: 35px;
-      height: 35px; }
-    .header .main-menu {
-      top: 50px;
-      margin: 0;
-      font-size: 0.9rem; }
+  .btn-toogle {
+    width: 35px;
+    height: 35px; }
+  .main-menu {
+    top: 50px;
+    margin: 0;
+    font-size: 0.9rem; }
   .card-container {
     max-width: 368px; }
   .modal-form-container {
@@ -463,23 +463,23 @@
 @media screen and (max-width: 480px) {
   .card-container {
     width: 304px; }
-    .card-container .droppable {
-      max-width: 148px;
-      height: 148px; }
-      .card-container .droppable .card {
-        max-width: 148px;
-        height: 148px; }
-        .card-container .droppable .card .title {
-          height: 20px;
-          font-size: 1.1rem; }
-        .card-container .droppable .card .description {
-          font-size: 0.9rem; }
-        .card-container .droppable .card .card-footer .price {
-          font-size: 0.9rem;
-          height: 25px; }
-        .card-container .droppable .card .card-footer .btn-buy {
-          font-size: 0.9rem;
-          height: 25px; }
+  .droppable {
+    max-width: 148px;
+    height: 148px; }
+  .card {
+    max-width: 148px;
+    height: 148px; }
+  .title {
+    height: 20px;
+    font-size: 1.1rem; }
+  .description {
+    font-size: 0.9rem; }
+  .price {
+    font-size: 0.9rem;
+    height: 25px; }
+  .btn-buy {
+    font-size: 0.9rem;
+    height: 25px; }
   .modal-form-container .modal-form {
     max-width: 300px;
     width: 100%; } }
@@ -487,24 +487,24 @@
 @media screen and (max-width: 320px) {
   .header {
     height: 45px; }
-    .header .btn-toogle {
-      width: 30px;
-      height: 30px; }
-    .header .main-menu {
-      top: 45px; }
+  .btn-toogle {
+    width: 30px;
+    height: 30px; }
+  .main-menu {
+    top: 45px; }
   .card-container {
     width: 152px; }
   .modal-form-container {
     padding-top: 150px; }
-    .modal-form-container .modal-form {
-      max-height: 120px; }
-      .modal-form-container .modal-form .form-card .input-change {
-        height: 35px; }
-      .modal-form-container .modal-form .form-card .btn-container {
-        margin-top: 10px; }
-        .modal-form-container .modal-form .form-card .btn-container .btn-submit,
-        .modal-form-container .modal-form .form-card .btn-container .btn-reset {
-          height: 35px;
-          font-size: 1.0rem; } }
+  .modal-form {
+    max-height: 120px; }
+  .input-change {
+    height: 35px; }
+  .btn-container {
+    margin-top: 10px; }
+  .btn-submit,
+  .btn-reset {
+    height: 35px;
+    font-size: 1.0rem; } }
 
 /*# sourceMappingURL=main.css.map */

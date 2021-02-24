@@ -1,4 +1,4 @@
-export const CARDS_DATA = [{
+const CARDS_DATA = [{
         id: 1,
         title: 'title #1',
         description: 'description #1',
@@ -84,7 +84,7 @@ export const CARDS_DATA = [{
     },
 ]
 
-export const MENU_DATA = [{
+const MENU_DATA = [{
         'label': 'Construction tools1',
         'children': [
             { 'label': '100mm' },

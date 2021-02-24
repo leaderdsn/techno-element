@@ -1,20 +1,3 @@
-// const babel = require('gulp-babel'); //
-// const concat = require('gulp-concat'); //
-// const uglifyjs = require('gulp-uglifyjs'); //
-
-
-// gulp.task('babel', function() {
-//     return gulp.src('app/es2015/*.js')
-//         .pipe(babel({ presets: ['es2015'] }))
-//         .pipe(gulp.dest('js'));
-// });
-
-// gulp.task('buildjs', function() {
-//     return gulp.src('app/js/*.js')
-//         .pipe(uglifyjs())
-//         .pipe(gulp.dest('app/js'));
-// })
-
 const {
     src,
     dest,
@@ -31,7 +14,8 @@ const changed = require('gulp-changed');
 const browsersync = require('browser-sync').create();
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
-var concat = require("gulp-concat");
+const concat = require("gulp-concat");
+const commonjs = require("gulp-commonjs");
 
 /** FONTS */
 function fonts() {
@@ -80,18 +64,19 @@ function watchFiles() {
     watch('./src/images/*', img);
     watch('./src/sass/**/*.sass', sass);
     watch('./src/css/*.css', css);
-    watch('./src/js/*.js', js);
     watch('./src/fonts/**/*.ttf', fonts);
+    watch('./src/js/*.js', js);
+    // watch(['src/**', 'test/**'], js);
 }
 
 /** JS */
 function js() {
     return src('./src/js/**/*.js')
         .pipe(sourcemaps.init())
-        // .pipe(babel({
-        //     presets: ['@babel/preset-env'],
-        //     plugins: ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-modules-commonjs"]
-        // }))
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(commonjs())
         .pipe(concat("main.js"))
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./build/js'))
@@ -117,4 +102,4 @@ function clear() {
 }
 
 exports.watch = parallel(watchFiles, browserSync);
-exports.default = series(clear, parallel(html, img, sass, css, js, fonts));
+exports.default = series(clear, parallel(html, img, sass, css, fonts, js));

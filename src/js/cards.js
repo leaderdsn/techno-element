@@ -4,7 +4,7 @@ let cardData = {
     value: null
 }
 
-export const createCard = (card) => {
+const createCard = (card) => {
     const cardContainerElem = document.querySelector('.js-card-container');
 
     // container for cards
