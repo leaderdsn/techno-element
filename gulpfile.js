@@ -31,6 +31,7 @@ const changed = require('gulp-changed');
 const browsersync = require('browser-sync').create();
 const babel = require('gulp-babel');
 const clean = require('gulp-clean');
+var concat = require("gulp-concat");
 
 /** FONTS */
 function fonts() {
@@ -52,7 +53,7 @@ function sass() {
 
 /** CSS */
 function css() {
-    const source = './src/css/main.css';
+    const source = './src/css/*.css';
     return src(source)
         .pipe(changed(source))
         .pipe(cssnano())
@@ -85,9 +86,13 @@ function watchFiles() {
 
 /** JS */
 function js() {
-    return src('./src/js/*.js')
+    return src('./src/js/**/*.js')
         .pipe(sourcemaps.init())
-        .pipe(babel({ presets: ['@babel/preset-env'] }))
+        // .pipe(babel({
+        //     presets: ['@babel/preset-env'],
+        //     plugins: ["@babel/plugin-proposal-class-properties", "@babel/plugin-transform-modules-commonjs"]
+        // }))
+        .pipe(concat("main.js"))
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./build/js'))
         .pipe(browsersync.stream());

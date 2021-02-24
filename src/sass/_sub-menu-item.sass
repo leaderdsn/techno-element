@@ -1,0 +1,12 @@
+.sub-menu-item
+    cursor: pointer
+    font-weight: normal
+    transition: all 0.5s ease-in
+    &:hover
+        font-weight: bold
+    &::before
+        content: '\2796'
+        margin-right: 5px
+        font-size: 0.7rem
+.collapsed::before
+    content: '\2795'

@@ -1,25 +1,21 @@
+let editingCardEl = null;
 let cardData = {
     id: null,
     value: null
 }
 
-
-// const mainContainer = document.querySelector('#main-container');
-
-// const root = document.querySelector('#root');
-
 export const createCard = (card) => {
-    const cardContainerElem = document.querySelector('#card-container');
+    const cardContainerElem = document.querySelector('.js-card-container');
 
     // container for cards
     const droppableElem = document.createElement('div');
     droppableElem.id = 'drop-' + card.id;
-    droppableElem.classList.add('droppable droppable-js');
+    droppableElem.classList.add(`droppable`);
 
     // product card
     const cardElem = document.createElement('div');
     cardElem.id = card.id;
-    cardElem.classList.add('card card-js');
+    cardElem.classList.add('card');
 
     // setting the attribute to true for the ability to drag the card
     cardElem.setAttribute("draggable", true);
@@ -59,40 +55,38 @@ export const createCard = (card) => {
     cardContainerElem.appendChild(droppableElem);
 
     cardTitleElem.addEventListener('click', (e) => {
-        cardData = { id: card.id, value: card.title };
-        showModalForm();
-    });
-
-
+        showModalForm(e, cardTitleElem)
+    })
 };
 
-export function listenFormCardSubmit() {
-    const modalFormContainer = document.querySelector('.js-modal-form-container')
-    const form = document.querySelector('js-card-form')
+const listenFormCardSubmit = (elem) => {
+    const form = document.querySelector('.js-form-card')
 
     form.onsubmit = (e) => {
-        e.preventDefault()
-
+        e.preventDefault();
+        cardData = {
+            id: elem.parentNode.id,
+            value: e.target.inputForm.value
+        }
         submitCard()
-            .then(() => {
-                editingCardEl.value = cardData
+            .then((res) => {
+                console.log(res)
+                editingCardEl = cardData;
+                elem.innerText = e.target.inputForm.value
+                console.log(editingCardEl)
+                form.reset();
+
             })
-            .catch(() => {
+            .catch((err) => {
                 // staging
-                editingCardEl.value = cardData
+                console.error(err)
             })
             .finally(() => {
-                editingCardEl = null
-                cardData = null
+                editingCardEl = null;
+                cardData = null;
             })
     }
-
-    const btnClose = document.querySelector('.js-btn-close')
-
-    btnClose.onclick = () => {
-        document.querySelector('js-card-form .js-input-form').value = ''
-        modalFormContainer.style.display = 'none'
-    }
+    closeModalForm();
 }
 
 function submitCard(data) {
@@ -101,12 +95,21 @@ function submitCard(data) {
             body: JSON.stringify(data)
         })
         .then(() => console.log('success send data'))
-        .catch(() => console.error('failed send data'))
-}
+        .catch(() => console.error('failed send data'));
+};
 
-function showModalForm() {
-    const modalFormContainer = document.querySelector('js-modal-form-container')
-    modalFormContainer.style.display = 'flex' //TODO: заменить на класс
-}
+function showModalForm(e, elem) {
+    const modalFormContainer = document.querySelector('.js-modal-form-container');
+    const inputForm = document.querySelector('.js-input-form')
+    inputForm.value = e.target.innerText;
+    listenFormCardSubmit(elem)
+    modalFormContainer.style.display = 'flex'; //TODO: заменить на класс
+};
 
-//root.appendChild(mainContainer);
+function closeModalForm() {
+    const modalFormContainer = document.querySelector('.js-modal-form-container');
+    const btnClose = document.querySelector('.js-btn-close');
+    btnClose.onclick = () => {
+        modalFormContainer.style.display = 'none';
+    };
+};

@@ -21,7 +21,7 @@
   align-items: center;
   display: flex;
   height: 100vh; }
-  #root #main-container {
+  #root .main-container {
     position: relative;
     max-width: 1200px;
     margin: auto auto;
@@ -40,7 +40,7 @@
     -webkit-user-select: none;
     user-select: none; }
 
-#header {
+.header {
   position: static;
   top: 0;
   left: 0;
@@ -53,68 +53,83 @@
   align-items: center;
   -webkit-box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
   -moz-box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2); }
-  #header .btn-toogle {
-    position: relative;
-    width: 40px;
-    height: 40px;
-    background-color: #ffd04a;
-    border: 2px solid tomato;
-    color: #ffd04a;
-    cursor: pointer;
-    border-radius: 10px;
-    transform: rotate(0deg);
-    transition: transform 0.5s;
-    background-image: url(../image/menu.png);
-    background-size: cover;
-    box-sizing: border-box;
-    -webkit-transition: -webkit-transform .8s ease-in-out; }
-    #header .btn-toogle:hover {
-      background-color: #ffd04a;
-      border: 2px solid #444141;
-      display: block; }
-  #header .main-menu {
-    position: absolute;
-    top: 60px;
-    left: 0px;
-    margin: 0;
-    overflow: scroll;
-    height: calc(100% - 60px);
-    padding-left: 0px;
-    padding-right: 2px;
-    background-color: #e7e7e7c2;
-    z-index: 100;
-    cursor: pointer;
-    font-weight: normal;
-    font-size: 0.9rem;
-    font-family: "MontserratMedium";
-    font-weight: normal;
-    color: #3c3c3c;
-    font-weight: bold;
-    -webkit-transition: -webkit-transform .8s ease-in-out;
-    transition: transform .8s ease-in-out; }
-    #header .main-menu .menu-item {
-      padding-left: 20px;
-      padding-right: 2px;
-      cursor: pointer;
-      font-weight: normal;
-      list-style-type: none; }
-      #header .main-menu .menu-item:hover {
-        font-weight: bold; }
-      #header .main-menu .menu-item .sub-menu-item {
-        cursor: pointer;
-        font-weight: normal;
-        transition: all 0.5s ease-in; }
-        #header .main-menu .menu-item .sub-menu-item:hover {
-          font-weight: bold; }
-        #header .main-menu .menu-item .sub-menu-item::before {
-          content: '\2796';
-          margin-right: 5px;
-          font-size: 0.7re; }
-      #header .main-menu .menu-item .collapsed::before {
-        content: '\2795'; }
+  box-shadow: 0px 6px 16px 1px rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px; }
 
-#card-container {
+.btn-toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #ffd04a;
+  border: 2px solid tomato;
+  color: #ffd04a;
+  cursor: pointer;
+  border-radius: 10px;
+  background-image: url(../images/menu.png);
+  background-size: cover;
+  box-sizing: border-box;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+  transform: rotate(0deg); }
+  .btn-toggle:hover {
+    background-color: #ffd04a;
+    border: 2px solid #444141;
+    display: block; }
+
+.show {
+  background-image: url(../images/previous.png);
+  transform: rotate(180deg); }
+
+.main-menu {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  margin: 0;
+  overflow: scroll;
+  height: calc(100% - 60px);
+  padding-left: 0px;
+  padding-right: 2px;
+  background-color: #e7e7e7c2;
+  z-index: 100;
+  cursor: pointer;
+  font-weight: normal;
+  font-size: 0.9rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  color: #3c3c3c;
+  font-weight: bold;
+  -webkit-transition: -webkit-transform .8s ease-in-out;
+  transition: transform .8s ease-in-out;
+  display: none; }
+
+.show-menu {
+  display: block; }
+
+.menu-item {
+  padding-left: 20px;
+  padding-right: 2px;
+  cursor: pointer;
+  font-weight: normal;
+  list-style-type: none; }
+  .menu-item:hover {
+    font-weight: bold; }
+
+.sub-menu-item {
+  cursor: pointer;
+  font-weight: normal;
+  transition: all 0.5s ease-in; }
+  .sub-menu-item:hover {
+    font-weight: bold; }
+  .sub-menu-item::before {
+    content: '\2796';
+    margin-right: 5px;
+    font-size: 0.7rem; }
+
+.collapsed::before {
+  content: '\2795'; }
+
+.card-container {
   position: relative;
   display: flex;
   align-items: center;
@@ -123,100 +138,121 @@
   margin: 20px auto;
   width: 1020px;
   cursor: pointer; }
-  #card-container .droppable {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    padding: 2px;
-    display: flex;
-    align-items: center;
-    align-content: center; }
-    #card-container .droppable .card {
-      height: 200px;
-      padding: 5px;
-      width: 200px;
-      display: flex;
-      background-color: #ffffff;
-      border-radius: 4px;
-      flex-direction: column;
-      box-sizing: border-box;
-      z-index: 5; }
-      #card-container .droppable .card:hover {
-        border: 2px solid #ffd04a;
-        padding: 3px; }
-      #card-container .droppable .card .title {
-        position: relative;
-        width: 100%;
-        display: flex;
-        font-size: 1.5rem;
-        font-family: "MontserratMedium";
-        font-weight: normal;
-        color: #3c3c3c;
-        background-color: #ffffff;
-        border: 1px solid #bbbbbb;
-        height: 30px;
-        margin: 0;
-        cursor: text;
-        text-indent: 5px; }
-      #card-container .droppable .card .description {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        font-size: 1.2rem;
-        font-family: "MontserratMedium";
-        font-weight: normal;
-        color: #666464;
-        background-color: #ffffff;
-        border: 1px solid #bbbbbb;
-        margin-top: 5px;
-        margin-bottom: 0px;
-        text-indent: 5px; }
-      #card-container .droppable .card .card-footer {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        margin-top: 10px; }
-        #card-container .droppable .card .card-footer .price {
-          width: 80px;
-          height: 30px;
-          position: relative;
-          display: inline-flex;
-          font-size: 1.2rem;
-          font-family: "MontserratMedium";
-          font-weight: normal;
-          color: #3c3c3c;
-          margin-right: 5px;
-          flex-grow: 1;
-          align-items: center; }
-        #card-container .droppable .card .card-footer .btn-buy {
-          width: 80px;
-          height: 30px;
-          position: relative;
-          display: inline-flex;
-          font-size: 1.2rem;
-          font-family: "MontserratMedium";
-          font-weight: normal;
-          background-color: #ffd04a;
-          color: #3c3c3c;
-          border-radius: 4px;
-          cursor: pointer;
-          margin-left: 5px;
-          flex-grow: 1;
-          align-items: center;
-          justify-content: center; }
-          #card-container .droppable .card .card-footer .btn-buy:hover {
-            background-color: #f39b13; }
-    #card-container .droppable .hiddenCard {
-      display: none; }
-    #card-container .droppable .taken {
-      border: 5px solid #0074f8; }
-    #card-container .droppable .ghostly {
-      display: none; }
-  #card-container .hovered {
-    background-color: #f1c30e; }
 
-#modal-form-container {
+.droppable {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border-radius: 4px; }
+
+.from-to {
+  background-color: tomato; }
+
+.hovered {
+  background-color: #f1c30e; }
+
+.default {
+  background-color: #91bcc4; }
+
+.card {
+  height: 200px;
+  padding: 5px;
+  width: 200px;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 4px;
+  flex-direction: column;
+  box-sizing: border-box;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
+  box-shadow: 0px 0px 10px 0px rgba(34, 60, 80, 0.2);
+  z-index: 5; }
+  .card:hover {
+    border: 2px solid #ffd04a;
+    padding: 3px; }
+
+.hidden {
+  display: none; }
+
+.taken {
+  border: 5px solid #0074f8; }
+
+.ghostly {
+  display: none; }
+
+.title {
+  position: relative;
+  width: 100%;
+  display: flex;
+  font-size: 1.5rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  color: #3c3c3c;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  height: 30px;
+  margin: 0;
+  cursor: text;
+  text-indent: 5px; }
+
+.description {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  font-size: 1.2rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  color: #666464;
+  background-color: #ffffff;
+  border: 1px solid #bbbbbb;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  text-indent: 5px; }
+
+.card-footer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px; }
+
+.price {
+  width: 80px;
+  height: 30px;
+  position: relative;
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  color: #3c3c3c;
+  margin-right: 5px;
+  flex-grow: 1;
+  align-items: center; }
+
+.btn-buy {
+  width: 80px;
+  height: 30px;
+  position: relative;
+  display: inline-flex;
+  font-size: 1.2rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  background-color: #ffd04a;
+  color: #3c3c3c;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center; }
+  .btn-buy:hover {
+    background-color: #f39b13; }
+
+.modal-form-container {
   z-index: 30;
   position: absolute;
   top: 0;
@@ -228,116 +264,123 @@
   justify-content: center;
   flex-wrap: wrap;
   display: none; }
-  #modal-form-container .modal-form {
-    position: relative;
-    width: 300px;
-    height: 100%;
-    max-height: 150px;
-    background-color: #f5f5f5;
-    border: 2px solid white;
-    border-radius: 4px;
-    padding: 10px;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none; }
-    #modal-form-container .modal-form .btn-close {
-      position: absolute;
-      right: 10px;
-      top: 0px;
-      background-color: #f1c30e;
-      color: #000;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      width: 30px;
-      height: 20px;
-      font-size: 1.3rem;
-      font-family: "LongCang";
-      font-weight: normal;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: 2px solid #f1c30e;
-      text-decoration: none; }
-      #modal-form-container .modal-form .btn-close:hover {
-        background: #b42222;
-        color: #ffffff;
-        border-color: #b42222; }
-      #modal-form-container .modal-form .btn-close::before {
-        content: '\2716'; }
-    #modal-form-container .modal-form #form {
-      max-width: 300px;
-      width: 100%; }
-      #modal-form-container .modal-form #form .input-change {
-        position: relative;
-        width: 100%;
-        height: 40px;
-        border-top-left-radius: 4px;
-        border-bottom-left-radius: 4px;
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
-        display: flex;
-        font-size: 0.9rem;
-        font-family: "MontserratMedium";
-        font-weight: normal;
-        padding: 0;
-        box-sizing: border-box;
-        text-indent: 5px;
-        border: 1px solid;
-        text-decoration: none; }
-      #modal-form-container .modal-form #form .btn-container {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        margin-top: 30px;
-        justify-content: space-around; }
-        #modal-form-container .modal-form #form .btn-container .btn-submit {
-          background-color: #41a451 !important;
-          position: relative;
-          height: 40px;
-          margin: 0;
-          width: 100%;
-          display: block;
-          font-size: 1.1rem;
-          font-family: "MontserratMedium";
-          font-weight: normal;
-          align-items: center;
-          justify-content: center;
-          box-sizing: border-box;
-          border-top-left-radius: 4px;
-          border-bottom-left-radius: 4px;
-          border-top-right-radius: 0px;
-          border-bottom-right-radius: 0px;
-          flex-grow: 1;
-          border: none;
-          text-decoration: none; }
-          #modal-form-container .modal-form #form .btn-container .btn-submit:hover {
-            background-color: #8ec998;
-            color: #ffffff; }
-        #modal-form-container .modal-form #form .btn-container .btn-reset {
-          position: relative;
-          height: 40px;
-          margin: 0;
-          width: 100%;
-          display: flex;
-          font-size: 1.1rem;
-          font-family: "MontserratMedium";
-          font-weight: normal;
-          align-items: center;
-          justify-content: center;
-          box-sizing: border-box;
-          border-top-left-radius: 0px;
-          border-bottom-left-radius: 0px;
-          border-top-right-radius: 4px;
-          border-bottom-right-radius: 4px;
-          background-color: #b42222;
-          flex-grow: 1;
-          border: none; }
-          #modal-form-container .modal-form #form .btn-container .btn-reset:hover {
-            background-color: #b43c3c;
-            color: #ffffff; }
+
+.modal-form {
+  position: relative;
+  width: 300px;
+  height: 100%;
+  max-height: 150px;
+  background-color: #f5f5f5;
+  border: 2px solid white;
+  border-radius: 4px;
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none; }
+
+.form-card {
+  max-width: 300px;
+  width: 100%; }
+
+.btn-close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  background-color: #f1c30e;
+  color: #000;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  width: 30px;
+  height: 20px;
+  font-size: 1.3rem;
+  font-family: "LongCang";
+  font-weight: normal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 2px solid #f1c30e;
+  text-decoration: none; }
+  .btn-close:hover {
+    background: #b42222;
+    color: #ffffff;
+    border-color: #b42222; }
+  .btn-close::before {
+    content: '\2716'; }
+
+.input-form {
+  position: relative;
+  width: 100%;
+  height: 35px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+  font-size: 0.9rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  padding: 0;
+  box-sizing: border-box;
+  text-indent: 5px;
+  border: 1px solid;
+  text-decoration: none; }
+
+.btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  justify-content: space-around; }
+
+.btn-submit {
+  background-color: #41a451;
+  position: relative;
+  height: 40px;
+  margin: 0;
+  width: 100%;
+  display: block;
+  font-size: 1.1rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  flex-grow: 1;
+  border: none;
+  text-decoration: none; }
+  .btn-submit:hover {
+    background-color: #8ec998;
+    color: #ffffff; }
+
+.btn-reset {
+  position: relative;
+  height: 40px;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  font-size: 1.1rem;
+  font-family: "MontserratMedium";
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  background-color: #b42222;
+  flex-grow: 1;
+  border: none; }
+  .btn-reset:hover {
+    background-color: #b43c3c;
+    color: #ffffff; }
 
 .btn-back-to-top {
   position: fixed;
@@ -367,100 +410,100 @@
     font-size: 1.3rem; }
 
 @media screen and (max-width: 1200px) {
-  #main-container {
+  .main-container {
     width: 950px; }
-  #card-container {
+  .card-container {
     width: 816px; } }
 
 @media screen and (max-width: 980px) {
-  #main-container {
+  .main-container {
     width: 750px; }
-  #card-container {
+  .card-container {
     width: 612px; } }
 
 @media screen and (max-width: 767px) {
-  #main-container {
+  .main-container {
     max-width: 767px;
     width: 100%; }
-  #card-container {
+  .card-container {
     max-width: 552px; }
-    #card-container .droppable {
+    .card-container .droppable {
       width: 100%;
       height: 180px;
       max-width: 180px; }
-      #card-container .droppable .card {
+      .card-container .droppable .card {
         width: 100%;
         height: 180px;
         max-width: 180px; }
-        #card-container .droppable .card .title {
+        .card-container .droppable .card .title {
           font-size: 1.4rem; }
-        #card-container .droppable .card .description {
+        .card-container .droppable .card .description {
           font-size: 1.1rem; }
-        #card-container .droppable .card .card-footer .price {
+        .card-container .droppable .card .card-footer .price {
           font-size: 1.1rem; }
-        #card-container .droppable .card .card-footer .btn-buy {
+        .card-container .droppable .card .card-footer .btn-buy {
           font-size: 1.1rem; } }
 
 @media screen and (max-width: 580px) {
-  #header {
+  .header {
     height: 50px; }
-    #header .btn-toogle {
+    .header .btn-toogle {
       width: 35px;
       height: 35px; }
-    #header .main-menu {
+    .header .main-menu {
       top: 50px;
       margin: 0;
       font-size: 0.9rem; }
-  #card-container {
+  .card-container {
     max-width: 368px; }
-  #modal-form-container {
+  .modal-form-container {
     align-items: flex-start;
     padding-top: 250px; } }
 
 @media screen and (max-width: 480px) {
-  #card-container {
+  .card-container {
     width: 304px; }
-    #card-container .droppable {
+    .card-container .droppable {
       max-width: 148px;
       height: 148px; }
-      #card-container .droppable .card {
+      .card-container .droppable .card {
         max-width: 148px;
         height: 148px; }
-        #card-container .droppable .card .title {
+        .card-container .droppable .card .title {
           height: 20px;
           font-size: 1.1rem; }
-        #card-container .droppable .card .description {
+        .card-container .droppable .card .description {
           font-size: 0.9rem; }
-        #card-container .droppable .card .card-footer .price {
+        .card-container .droppable .card .card-footer .price {
           font-size: 0.9rem;
           height: 25px; }
-        #card-container .droppable .card .card-footer .btn-buy {
+        .card-container .droppable .card .card-footer .btn-buy {
           font-size: 0.9rem;
           height: 25px; }
-  #modal-form-container .modal-form {
+  .modal-form-container .modal-form {
     max-width: 300px;
     width: 100%; } }
 
 @media screen and (max-width: 320px) {
-  #header {
+  .header {
     height: 45px; }
-    #header .btn-toogle {
+    .header .btn-toogle {
       width: 30px;
       height: 30px; }
-    #header .main-menu {
+    .header .main-menu {
       top: 45px; }
-  #card-container {
+  .card-container {
     width: 152px; }
-  #modal-form-container {
+  .modal-form-container {
     padding-top: 150px; }
-    #modal-form-container .modal-form {
+    .modal-form-container .modal-form {
       max-height: 120px; }
-      #modal-form-container .modal-form #form .input-change {
+      .modal-form-container .modal-form .form-card .input-change {
         height: 35px; }
-      #modal-form-container .modal-form #form .btn-container {
+      .modal-form-container .modal-form .form-card .btn-container {
         margin-top: 10px; }
-        #modal-form-container .modal-form #form .btn-container .btn-submit,
-        #modal-form-container .modal-form #form .btn-container .btn-reset {
+        .modal-form-container .modal-form .form-card .btn-container .btn-submit,
+        .modal-form-container .modal-form .form-card .btn-container .btn-reset {
           height: 35px;
           font-size: 1.0rem; } }
 
