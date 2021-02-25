@@ -3,18 +3,17 @@ const {
     dest,
     parallel,
     series,
-    watch
+    watch,
+    task
 } = require('gulp')
 
 /** LOAD PLUGINS */
 const gulpsass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 const browsersync = require('browser-sync').create();
-const babel = require('gulp-babel');
 const clean = require('gulp-clean');
-const concat = require("gulp-concat");
-const commonjs = require("gulp-commonjs");
 const autoprefixer = require('gulp-autoprefixer');
+
 
 /** FONTS */
 function fonts() {
@@ -63,11 +62,6 @@ function watchFiles() {
 /** JS */
 function js() {
     return src('./src/js/**/*.js')
-        // .pipe(babel({
-        //     presets: ['@babel/preset-env']
-        // }))
-        // .pipe(commonjs())
-        // .pipe(concat("main.js")))
         .pipe(dest('./build/js'))
         .pipe(browsersync.stream());
 
