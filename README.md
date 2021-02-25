@@ -27,4 +27,4 @@ Open source code using your favorite IDE/Text editor and navigate to src/ direct
 
 ### bash
 #### #using npm
-    npx gulp
+    npm run build

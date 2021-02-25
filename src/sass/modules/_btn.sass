@@ -47,6 +47,25 @@
     &::before
         content: '\2716'
 
+.btn-toggle
+    width: 40px
+    background-color: #ffd04a
+    border: 2px solid tomato
+    color: #ffd04a
+    border-radius: 10px
+    background-image: url(../images/menu.png)
+    background-size: 1.6rem
+    background-repeat: no-repeat
+    background-position: 0.45rem
+    transition: transform .8s ease-in-out
+    transform: rotate(0deg)
+    &:hover
+        background-color: #ffd04a
+        border: 2px solid #444141
+    &.btn-toggle-expanded
+        background-image: url(../images/previous.png)
+        transform: rotate(180deg)
+
 //the height of the default buttons
 .btn-hs-xs
     height: 20px

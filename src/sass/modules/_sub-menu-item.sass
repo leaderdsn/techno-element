@@ -2,11 +2,19 @@
     cursor: pointer
     font-weight: normal
     transition: all 0.5s ease-in
+    position: relative
+    padding-left: 5px
     &:hover
         font-weight: bold
-    &::before
-        content: '\2796'
-        margin-right: 5px
-        font-size: 0.7rem
-    &.collapsed::before
-        content: '\2795'
+
+.nested-sub-menu-item::before
+    position: absolute
+    left: -10px
+    top: 1px
+    content: '\2796'
+    font-size: 0.7rem
+
+
+.collapsed::before
+    font-size: 0.7rem
+    content: '\2795'
