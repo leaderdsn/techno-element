@@ -9,17 +9,13 @@
     align-items: center
     justify-content: center
     box-sizing: border-box
-    border-radius: 4px 4px 4px 4px
     flex-grow: 1
     border: none
     text-decoration: none
     cursor: pointer
+    border-radius: 0
 
-.btn-default
-    color: aliceblue
-    &:hover
-        color: red
-
+//default button styles
 .btn-danger
     background-color: #b42222
     &:hover
@@ -37,8 +33,54 @@
     &:hover
         background-color: #f39b13
 
-.btn-size-lg
+//special buttons
+.btn-close
+    position: absolute
+    right: 10px
+    top: 0px
+    font-family: "LongCang"
+    font-size: 1.1rem
+    padding: 0 0 2px 0
+    &:hover
+        background: #b42222
+        color: #ffffff
+    &::before
+        content: '\2716'
+
+//the height of the default buttons
+.btn-hs-xs
+    height: 20px
+
+.btn-hs-sm
     height: 30px
 
-.btn-size-md
+.btn-hs-lg
     height: 40px
+
+.btn-hs-md
+    height: 60px
+
+.btn-hs-xl
+    height: 80px
+
+.btn-hs-xxl
+    height: 90px
+
+//the width of the default buttons
+.btn-ws-xs
+    width: 20px
+
+.btn-ws-sm
+    width: 30px
+
+.btn-ws-lg
+    width: 40px
+
+.btn-ws-md
+    width: 60px
+
+.btn-ws-xl
+    width: 70px
+
+.btn-ws-xxl
+    width: 80px
