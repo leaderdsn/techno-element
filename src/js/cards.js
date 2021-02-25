@@ -38,7 +38,10 @@ export const createCard = (card) => {
 
     // buy button
     const btnBuyElem = document.createElement('div');
-    btnBuyElem.classList.add('btn-buy');
+    btnBuyElem.classList.add('btn');
+    btnBuyElem.classList.add('btn-hs-sm');
+    btnBuyElem.classList.add('btn-ws-md');
+    btnBuyElem.classList.add('btn-warning');
 
     cardTitleElem.innerHTML = card.title;
     cardDescriptionElem.innerHTML = card.description;
