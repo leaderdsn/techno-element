@@ -69,8 +69,11 @@ const listenFormCardSubmit = (elem) => {
 
         try {
             await submitCard(cardData);
+            elem.innerText = cardData.value
             form.reset();
         } catch (e) {
+            //for demonstration: changing the name of the card added to the catch block
+            elem.innerText = cardData.value
             form.reset();
         }
         cardData = null;
