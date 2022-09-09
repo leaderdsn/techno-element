@@ -17,16 +17,16 @@
         "url": "https://github.com/leaderdsn/techno-element/issues"
     },
     "homepage": "https://github.com/leaderdsn/techno-element#readme",
-    "dependencies": {},
     "devDependencies": {
-        "browser-sync": "^2.26.14",
-        "gulp": "^4.0.2",
-        "gulp-autoprefixer": "^7.0.1",
-        "gulp-clean": "^0.4.0",
-        "gulp-imagemin": "^7.1.0",
-        "gulp-sass": "^4.1.0",
-        "gulp-sourcemaps": "^3.0.0",
-        "gulp-watch": "^5.0.1",
-        "node-normalize-scss": "^8.1.2"
+        "browser-sync": "2.27.10",
+        "gulp": "4.0.2",
+        "gulp-autoprefixer": "8.0.0",
+        "gulp-clean": "0.4.0",
+        "gulp-imagemin": "8.0.0",
+        "gulp-sass": "5.1.0",
+        "gulp-sourcemaps": "3.0.0",
+        "gulp-watch": "5.0.1",
+        "node-normalize-scss": "8.1.2",
+        "sass": "1.54.9"
     }
 }

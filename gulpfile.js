@@ -8,7 +8,9 @@ const {
 } = require('gulp')
 
 /** LOAD PLUGINS */
+const dartsass = require('sass');
 const gulpsass = require('gulp-sass');
+const sasscompiler = gulpsass(dartsass)
 const sourcemaps = require('gulp-sourcemaps');
 const browsersync = require('browser-sync').create();
 const clean = require('gulp-clean');
@@ -26,11 +28,11 @@ function fonts() {
 /** SASS */
 function sass() {
     const source = './src/sass/**/*.sass'
-    return src(source)
+    return src(source, { sourcemaps: true })
         .pipe(sourcemaps.init())
-        .pipe(gulpsass({
+        .pipe(sasscompiler.sync({
             includePaths: require("node-normalize-scss").includePaths
-        }).on('error', gulpsass.logError))
+        }).on('error', sasscompiler.logError))
         .pipe(autoprefixer())
         .pipe(sourcemaps.write('./'))
         .pipe(dest('./build/css/'))
