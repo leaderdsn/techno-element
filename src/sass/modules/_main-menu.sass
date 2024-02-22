@@ -1,21 +1,24 @@
 $menu-height: 0px
 
 .main-menu
-    position: absolute
-    top: 0px
+    position: fixed
+    top: 60px
     left: 0
     margin: 0
-    overflow: scroll
+    overflow-x: hidden
+    overflow-y: auto
+    min-width: 320px
     height: calc(100% - #{menu-height})
     max-height: 100%
     min-height: 100%
-    padding: 60px 2px 0 10px
+    padding: 0 2px 0 10px
     background-color: #e7e7e7c2
     font-size: 0.9rem
     color: #3c3c3c
     font-weight: bold
-    transition: transform .8s ease-in-out
+    transition: .8s ease-in-out
     display: flex
     cursor: pointer 
     z-index: 100
     box-sizing: border-box
+    opacity: 1

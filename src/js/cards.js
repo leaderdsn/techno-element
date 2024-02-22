@@ -4,7 +4,7 @@ let cardData = {
 }
 
 export const createCard = (card) => {
-    const cardContainerElem = document.querySelector('.js-card-container');
+    const cardContainerElem = document.querySelector('.js-cards-container');
 
     // container for cards
     const droppableElem = document.createElement('div');
@@ -32,7 +32,7 @@ export const createCard = (card) => {
     cardElem.appendChild(cardDescriptionElem);
 
     // container for price and button elements
-    const cardFooterElem = document.createElement('div');
+    const cardFooterElem = document.createElement('footer');
     cardFooterElem.classList.add('card-footer');
 
     // card price
@@ -42,7 +42,7 @@ export const createCard = (card) => {
     cardFooterElem.appendChild(priceElem);
 
     // buy button
-    const btnBuyElem = document.createElement('div');
+    const btnBuyElem = document.createElement('button');
     btnBuyElem.classList.add('btn', 'btn-hs-sm', 'btn-ws-md', 'btn-warning', 'br');
     btnBuyElem.innerHTML = 'Buy';
     cardFooterElem.appendChild(btnBuyElem);
@@ -71,6 +71,7 @@ const listenFormCardSubmit = (elem) => {
             await submitCard(cardData);
             elem.innerText = cardData.value
             form.reset();
+            closeModalForm();
         } catch (e) {
             //for demonstration: changing the name of the card added to the catch block
             elem.innerText = cardData.value
@@ -81,8 +82,8 @@ const listenFormCardSubmit = (elem) => {
     closeModalForm();
 }
 
-function submitCard(data) {
-    return window.fetch('/postData', {
+async function submitCard(data) {
+    return await window.fetch('/post-data', {
             method: 'POST',
             body: JSON.stringify(data)
         })
