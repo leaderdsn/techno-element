@@ -43,7 +43,7 @@ export const createCard = (card) => {
 
     // buy button
     const btnBuyElem = document.createElement('button');
-    btnBuyElem.classList.add('btn', 'btn-hs-sm', 'btn-ws-md', 'btn-warning', 'br');
+    btnBuyElem.classList.add('btn', 'btn-hs-sm', 'btn-ws-md', 'btn-warning', 'br-15');
     btnBuyElem.innerHTML = 'Buy';
     cardFooterElem.appendChild(btnBuyElem);
 
@@ -58,6 +58,7 @@ export const createCard = (card) => {
 
 const listenFormCardSubmit = (elem) => {
     const form = document.querySelector('.js-form-card');
+    const modalFormContainer = document.querySelector('.js-modal-form-container');
 
     form.onsubmit = async(e) => {
         e.preventDefault();
@@ -71,15 +72,15 @@ const listenFormCardSubmit = (elem) => {
             await submitCard(cardData);
             elem.innerText = cardData.value
             form.reset();
-            closeModalForm();
         } catch (e) {
             //for demonstration: changing the name of the card added to the catch block
             elem.innerText = cardData.value
             form.reset();
         }
         cardData = null;
+        modalFormContainer.classList.add('hidden');
     }
-    closeModalForm();
+    closeModalForm()
 }
 
 async function submitCard(data) {
